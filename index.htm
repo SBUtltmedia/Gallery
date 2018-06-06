@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>3D Gallery</title>
+  <meta name="description" content="3D Gallery">
+  <script src="https://rawgit.com/aframevr/aframe/9343cd9/dist/aframe-master.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/jquery.csv.js"></script>
+</head>
+
+<body>
+
+
+  <a-scene loader background="color: #ECECEC">
+    <a-sky src="https://upload.wikimedia.org/wikipedia/commons/1/16/Appearance_of_sky_for_weather_forecast%2C_Dhaka%2C_Bangladesh.JPG"></a-sky>
+    <!-- Camera Functions -->
+    <a-entity camera id="camera" look-controls="enabled: true" wasd-controls="enabled: true" position='0 0 0' rotation="0 -.01 0">
+      <a-entity cursor id="outerCircle" position="0 0 -.5" geometry="primitive: ring; radiusInner: 0.0075; radiusOuter: 0.010" material="color: #ECECEC; shader: flat"> </a-entity>
+      <a-entity cursor="fuse: true; fuseTimeout: 500;" id=i d="innerCircle" position="0 0 -.499" geometry="primitive: ring; radiusInner: 0.00075; radiusOuter: 0.0025" material="color: black; shader: flat"></a-entity>
+      <a-sphere radius=".01" position="-.1 0 0" id="leftCircle"></a-sphere>
+      <a-sphere radius=".01" position=".1 0 0" id="rightCircle" color="black"></a-sphere>
+    </a-entity>
+    <!-- First Door -->
+    <a-plane height='1.25' width='1.75' rotation='0 180 0' position='0 0 .75' side='front' src='img/doubleDoor.jpg'></a-plane>
+  </a-scene>
+</body>
+
+</html>
+
+<!--
+    Non Hard-Coded Ideas:
+     • If the camera looks from a certain direction the hud spawns to the left or right under certain conditions
+     • vive headset have look controls but not sight controls
+  ✓  • reads a group of files
+  ✓  • creates a long enough room based on photos
+  ✓  • build the room that the photos will be placed in based on # of photos
+  ✓  • places photos in position ( base new builds off of the photo plane's position)s
+  ✓  • creates frames based on photo aspect ratio
+  ✓  • put up the first and last wall
+  ✓  • places both on either wall
+  ✓  • set length of text based on photo position and height
+  -->
